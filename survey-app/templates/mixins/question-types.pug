@@ -5,7 +5,7 @@ mixin radio-question(question)
             each ans in question.answers
                 .radio
                     label
-                        input(type="radio", name=question.title, value=ans)
+                        input(type="radio", name=question._id, value=ans)
                         | #{ans}
 
 mixin checkbox-question(question)
@@ -15,14 +15,14 @@ mixin checkbox-question(question)
             each ans in question.answers
                 .checkbox
                     label
-                        input.checkbox-input(type="checkbox" value=ans, name=question.title)
+                        input.checkbox-input(type="checkbox" value=ans, name=question._id)
                         | #{ans}
 
 mixin textarea-question(question)
     if question
         .form-group
             p #{question.title}
-            textarea.form-control(rows="5" name=question.title)
+            textarea.form-control(rows="5" name=question._id)
 
 mixin scale-question(question)
     if question
@@ -32,6 +32,6 @@ mixin scale-question(question)
                 span Not at all
                 each val in [1, 2, 3, 4, 5]
                     label.radio-inline
-                        input(type="radio", name=question.title, value=val)
+                        input(type="radio", name=question._id, value=val)
                 span To a large extent
 
